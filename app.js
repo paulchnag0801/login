@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
-mongoose.connect('mongodb://localhost/todo-list', {
+mongoose.connect('mongodb://localhost/login-pwd-practice', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
