@@ -5,6 +5,7 @@ const app = express()
 
 const routes = require('./routes')
 
+const usePassport = require('./config/passport')
 require('./config/mongoose')
 // 取得資料庫連線狀態
 
@@ -18,6 +19,7 @@ app.use(
   })
 )
 app.use(express.urlencoded({ extended: true }))
+usePassport(app)
 app.use(routes)
 
 app.get('/', (req, res) => {
