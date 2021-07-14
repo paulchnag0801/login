@@ -7,7 +7,6 @@ const routes = require('./routes')
 
 const usePassport = require('./config/passport')
 require('./config/mongoose')
-// 取得資料庫連線狀態
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
