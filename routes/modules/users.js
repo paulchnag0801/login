@@ -74,4 +74,9 @@ router.get('/welcome/:id', (req, res) => {
     })
 })
 
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/')
+})
+
 module.exports = router
