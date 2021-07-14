@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const app = express()
 
@@ -7,10 +8,15 @@ const routes = require('./routes')
 require('./config/mongoose')
 // 取得資料庫連線狀態
 
-
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
-
+app.use(
+  session({
+    secret: 'ThisIsMySecret',
+    resave: false,
+    saveUninitialized: true,
+  })
+)
 app.use(express.urlencoded({ extended: true }))
 app.use(routes)
 
