@@ -1,10 +1,6 @@
-const mongoose = require('mongoose')
+const db = require('../../config/mongoose')
 const Account = require('../accounts')
-mongoose.connect('mongodb://localhost/login-pwd-practice', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-const db = mongoose.connection
+
 const users = [
   {
     firstName: 'Tony',
@@ -32,13 +28,6 @@ const users = [
     password: 'password',
   },
 ]
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
 
 db.once('open', () => {
   users.forEach((user) => {
