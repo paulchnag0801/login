@@ -30,7 +30,7 @@ password: password
 
 ## 畫面瀏覽
 
-![2-3 A10 作業]("https://i.ibb.co/L0tbf9z/2021-07-14-11-58-41.png")
+![2-3 A10 作業](https://i.ibb.co/L0tbf9z/2021-07-14-11-58-41.png)
 
 ## 建置環境
 
