@@ -4,8 +4,12 @@ const passport = require('passport')
 const Account = require('../../models/accounts.js')
 
 router.get('/', (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.redirect(`/welcome/${req.user._id}`)
+  }
   return res.redirect('/login')
 })
+
 
 router.get('/login', (req, res) => {
   return res.render('login')
@@ -23,7 +27,7 @@ router.post('/login', (req, res) => {
         const alert = '您輸入的密碼有誤'
         return res.render('login', { alert })
       }
-      return res.redirect(`/welcome/${user._id}`)
+      return res.redirect(`/users/welcome/${user._id}`)
     })
 })
 
@@ -31,7 +35,7 @@ router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/users/login',
+    failureRedirect: '/login',
   })
 )
 
